@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   { 
     path: 'cart',
-    component: LoginComponent
+    component: CartComponent
   },
   {
     path:'login',
