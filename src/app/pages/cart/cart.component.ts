@@ -15,9 +15,14 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
 
-    this.cartItems = this.cartService.getCartItems();
+    this.cartService.cartItems$
+      .subscribe(items => {
 
-    this.calculateTotal();
+        this.cartItems = items;
+
+        this.calculateTotal();
+
+      });
 
   }
 
@@ -26,21 +31,15 @@ export class CartComponent implements OnInit {
     this.totalPrice = 0;
 
     for (let item of this.cartItems) {
-
-      this.totalPrice =
-        this.totalPrice + item.price;
-
+      this.totalPrice += item.price;
     }
 
-    
-
   }
+
   removeItem(index) {
 
-  this.cartService.removeItem(index);
+    this.cartService.removeItem(index);
 
-  this.calculateTotal();
-
-}
+  }
 
 }
