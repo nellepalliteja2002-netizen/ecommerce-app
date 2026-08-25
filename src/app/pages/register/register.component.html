@@ -1,0 +1,42 @@
+<h2>Registration Page</h2>
+
+<div>
+
+  <input
+    type="text"
+    placeholder="Name"
+    [(ngModel)]="name">
+
+  <br><br>
+
+  <input
+    type="email"
+    placeholder="Email"
+    [(ngModel)]="email">
+
+  <br><br>
+
+  <input
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="password">
+
+  <br><br>
+
+  <input
+    type="password"
+    placeholder="Confirm Password"
+    [(ngModel)]="confirmPassword">
+
+  <br><br>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="register()">
+
+    Register
+
+  </button>
+
+</div>

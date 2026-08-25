@@ -1,3 +1,22 @@
-<p>
-  login works!
-</p>
+<h2>Login Page</h2>
+
+<div>
+
+  <label>Email</label>
+
+  <br>
+
+  <input type="email"  [(ngModel)]="email">
+
+  <br><br>
+
+  <label>Password</label>
+  <br>
+  <input type="password" [(ngModel)]="password">
+
+  <br><br>
+
+  <button mat-raised-button color="primary" (click)="login()">
+    Login
+  </button>
+</div>

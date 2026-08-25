@@ -10,7 +10,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductCardComponent } from './pages/product-card/product-card.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-
+import { RegisterComponent } from './pages/register/register.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +20,15 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
     CartComponent,
     LoginComponent,
     ProductCardComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
