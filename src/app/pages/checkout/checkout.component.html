@@ -1,0 +1,57 @@
+<h2>Checkout Page</h2>
+
+<div>
+
+  <input
+    type="text"
+    placeholder="Customer Name"
+    [(ngModel)]="name">
+
+  <br><br>
+
+  <textarea
+    placeholder="Address"
+    [(ngModel)]="address">
+  </textarea>
+
+  <br><br>
+
+  <input
+    type="text"
+    placeholder="Phone Number"
+    [(ngModel)]="phone">
+
+  <br><br>
+
+  <select [(ngModel)]="paymentMethod">
+
+    <option value="">
+      Select Payment Method
+    </option>
+
+    <option value="Cash On Delivery">
+      Cash On Delivery
+    </option>
+
+    <option value="UPI">
+      UPI
+    </option>
+
+    <option value="Credit Card">
+      Credit Card
+    </option>
+
+  </select>
+
+  <br><br>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="placeOrder()">
+
+    Place Order
+
+  </button>
+
+</div>

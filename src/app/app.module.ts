@@ -12,6 +12,7 @@ import { ProductCardComponent } from './pages/product-card/product-card.componen
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FormsModule } from '@angular/forms';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     ProductCardComponent,
     ProductDetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
