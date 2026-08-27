@@ -7,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  name = 'Teja';
+  email = 'teja@gmail.com';
+  address = 'Bangalore';
+  phone = '8463940742';
+
   constructor() { }
 
   ngOnInit() {
-    console.log('PROFILE COMPONENT LOADED');
+    console.log('Profile Loaded');
+  }
+
+  editProfile() {
+    alert('Edit Profile Clicked');
   }
 
 }
