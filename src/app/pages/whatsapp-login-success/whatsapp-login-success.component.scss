@@ -7,24 +7,24 @@
 }
 
 .success-card {
-  width: 320px;
+  width: 350px;
   background: #fff;
-  padding: 30px;
   border-radius: 16px;
+  padding: 30px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .success-icon {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
   margin: 0 auto 20px;
-  background: #e8f5e9;
   border-radius: 50%;
+  background: #e8f5e9;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 40px;
+  justify-content: center;
+  font-size: 55px;
 }
 
 h2 {
@@ -33,17 +33,30 @@ h2 {
 
 .message {
   color: #666;
-  margin-bottom: 25px;
-  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
-.login-btn {
+.feature-card {
+  background: #f7f7f7;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  text-align: left;
+  border: 1px solid #eee;
+}
+
+.home-btn {
   width: 100%;
+  margin-top: 20px;
   height: 45px;
   border: none;
   border-radius: 8px;
   background: #2e7d32;
   color: white;
-  cursor: pointer;
   font-size: 15px;
+  cursor: pointer;
+}
+
+.home-btn:hover {
+  background: #1b5e20;
 }

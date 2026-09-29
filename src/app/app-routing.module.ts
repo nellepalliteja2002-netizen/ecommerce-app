@@ -11,6 +11,8 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { AdminOtpComponent } from './pages/admin-otp/admin-otp.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { PasswordSuccessComponent } from './pages/password-success/password-success.component';
+import { WhatsappLoginSuccessComponent } from './pages/whatsapp-login-success/whatsapp-login-success.component';
+import { CustomerHomeComponent } from './pages/customer-home/customer-home.component';
 const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
 
@@ -23,7 +25,11 @@ const routes: Routes = [
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'admin-otp', component: AdminOtpComponent },
-  { path: 'password-success', component: PasswordSuccessComponent }
+  { path: 'password-success', component: PasswordSuccessComponent },
+  { path: 'whatsapp-login-success',component: WhatsappLoginSuccessComponent},
+  { path: 'customer-home',component: CustomerHomeComponent}
+
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

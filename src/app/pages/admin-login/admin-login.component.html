@@ -22,14 +22,17 @@
     <label>Username</label>
 
     <input
-      type="text"
-      placeholder="Enter username">
+  type="text"
+  [(ngModel)]="username"
+  placeholder="Enter username">
 
     <label>Password</label>
 
     <input
-      type="password"
-      placeholder="Enter password">
+  type="password"
+  [(ngModel)]="password"
+  placeholder="Enter password">
+`
 
     <div class="options">
 
@@ -44,9 +47,11 @@
 
     </div>
 
-    <button class="login-btn">
-      Login
-    </button>
+    <button
+  class="login-btn"
+  (click)="login()">
+  Login
+</button>
 
     <p class="secure">
       🔒 Secure & Protected Access

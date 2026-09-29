@@ -17,6 +17,8 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { AdminOtpComponent } from './pages/admin-otp/admin-otp.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { PasswordSuccessComponent } from './pages/password-success/password-success.component';
+import { WhatsappLoginSuccessComponent } from './pages/whatsapp-login-success/whatsapp-login-success.component';
+import { CustomerHomeComponent } from './pages/customer-home/customer-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { PasswordSuccessComponent } from './pages/password-success/password-succ
     ForgotPasswordComponent,
     AdminOtpComponent,
     ResetPasswordComponent,
-    PasswordSuccessComponent
+    PasswordSuccessComponent,
+    WhatsappLoginSuccessComponent,
+    CustomerHomeComponent
 
   ],
     

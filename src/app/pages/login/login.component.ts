@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   continueWithWhatsapp() {
-    alert('WhatsApp Login Coming Soon');
-  }
+  this.router.navigate(['/whatsapp-login-success']);
+}
 
 }
