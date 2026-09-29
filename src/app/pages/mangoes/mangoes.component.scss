@@ -1,0 +1,76 @@
+body {
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #1b5e20;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.details h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.desc {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff6f00;
+  margin-bottom: 15px;
+}
+
+.quantity-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.qty-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #ff9800;
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.qty {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cart-btn {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cart-btn:hover {
+  background: #1b5e20;
+}

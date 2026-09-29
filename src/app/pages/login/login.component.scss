@@ -1,0 +1,113 @@
+.login-page {
+  min-height: 100vh;
+  background: #f5f7f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-icon {
+  font-size: 50px;
+}
+
+.logo-section h2 {
+  color: #2e7d32;
+  margin: 10px 0 5px;
+}
+
+.logo-section p {
+  color: #666;
+  font-size: 14px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.mobile-input {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.country-code {
+  width: 80px;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-right: 1px solid #ddd;
+}
+
+.mobile-input input {
+  flex: 1;
+  border: none;
+  padding: 15px;
+  outline: none;
+}
+
+.otp-btn {
+  width: 100%;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #777;
+}
+
+.whatsapp-btn {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #2e7d32;
+  background: white;
+  color: #2e7d32;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.privacy {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+  font-size: 14px;
+}

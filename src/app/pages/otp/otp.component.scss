@@ -1,0 +1,106 @@
+.otp-page {
+  min-height: 100vh;
+  background: #f5f7f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-card {
+  background: white;
+  width: 450px;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,.1);
+}
+
+.logo-icon {
+  font-size: 50px;
+}
+
+.logo-section h2 {
+  color: #2e7d32;
+}
+
+.logo-section p {
+  color: #666;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.subtitle {
+  color: #777;
+  margin: 15px 0 25px;
+}
+
+.otp-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.otp-boxes input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 24px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.timer {
+  color: #2e7d32;
+  margin: 20px 0;
+  font-weight: 600;
+}
+
+.verify-btn {
+  width: 100%;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.secure {
+  margin-top: 20px;
+  color: gray;
+}
+
+.phone {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.edit {
+  color: green;
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.phone {
+  margin-bottom: 20px;
+}
+
+.otp-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.otp-boxes input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 20px;
+}

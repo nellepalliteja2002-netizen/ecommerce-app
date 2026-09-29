@@ -1,0 +1,71 @@
+.success-page {
+  min-height: 100vh;
+  background: #f5f7f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.success-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  background: #e8f5e9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6cqh;
+}
+
+.success-card h1 {
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.welcome-text {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.feature-card {
+  background: #f8f9fa;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.home-btn {
+  width: 100%;
+  margin-top: 20px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.home-btn:hover {
+  background: #1b5e20;
+}

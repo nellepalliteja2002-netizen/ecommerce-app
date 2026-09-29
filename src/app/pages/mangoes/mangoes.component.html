@@ -1,0 +1,50 @@
+<div class="container">
+
+  <h1>Available Mangoes 🥭</h1>
+
+  <div class="card" *ngFor="let mango of mangoes">
+
+    <div class="mango-image">
+      🥭
+    </div>
+
+    <div class="details">
+
+      <h3>{{ mango.name }}</h3>
+
+      <p class="desc">{{ mango.desc }}</p>
+
+      <p class="price">
+        ₹{{ mango.price }} / Box
+      </p>
+
+      <div class="quantity-section">
+
+        <button
+          class="qty-btn"
+          (click)="mango.qty = mango.qty - 1"
+          [disabled]="mango.qty <= 1">
+          -
+        </button>
+
+        <span class="qty">
+          {{ mango.qty }}
+        </span>
+
+        <button
+          class="qty-btn"
+          (click)="mango.qty = mango.qty + 1">
+          +
+        </button>
+
+      </div>
+
+      <button class="cart-btn">
+        Add To Cart
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
