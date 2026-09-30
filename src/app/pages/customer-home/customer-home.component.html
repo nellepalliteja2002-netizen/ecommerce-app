@@ -32,20 +32,28 @@
 
     <nav>
 
-      <a class="active">Home</a>
-      <a>Mangoes</a>
-      <a>How It Works</a>
-      <a>My Orders</a>
-      <a>About Us</a>
-      <a>Contact</a>
+      <a class="active" (click)="goHome()">Home</a>
+
+<a (click)="viewMangoes()">Mangoes</a>
+
+<a (click)="howItWorks()">How It Works</a>
+
+<a (click)="myOrders()">My Orders</a>
+
+<a (click)="aboutUs()">About Us</a>
+
+<a (click)="contactUs()">Contact</a>
 
     </nav>
 
     <div class="header-actions">
 
-      <span class="cart-icon">🛒</span>
+      <span class="cart-icon">
+  🛒 {{ cart.length }}
+    </span>
 
-      <button class="login-btn">
+      <button class="login-btn"
+      (click)="login()">
         Login
       </button>
 
@@ -87,7 +95,8 @@
 
       </div>
 
-      <button class="shop-btn">
+      <button class="shop-btn"
+      (click)="shopMangoes()">
         Shop Mangoes →
       </button>
 
@@ -105,231 +114,75 @@
 
   <!-- CONTENT -->
 
-  <div class="content">
+  <!-- CONTENT -->
 
-    <!-- PRODUCTS -->
+<div class="content">
 
-    <div class="left-section">
+  <!-- LEFT SECTION -->
 
-      <div class="section-header">
+  <div class="left-section">
 
-        <h2>Our Premium Mangoes</h2>
+    <div class="section-header">
 
-        <div class="search-box">
-          <input
-            type="text"
-            placeholder="Search mangoes...">
-        </div>
+      <h2>Our Premium Mangoes</h2>
 
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Search mangoes..."
+          [(ngModel)]="searchText">
       </div>
 
-      <div class="products">
+    </div>
 
-        <!-- CARD 1 -->
+    <div class="products">
 
-        <div class="card">
+      <div
+        class="card"
+        *ngFor="let product of getFilteredProducts()">
 
-          <span class="tag">
-            Best Seller
+        <span
+          class="tag"
+          *ngIf="product.name === 'Sindhura'">
+
+          Best Seller
+
+        </span>
+
+        <div class="image-placeholder">
+          Mango Image
+        </div>
+
+        <h3>{{ product.name }}</h3>
+
+        <p>{{ product.description }}</p>
+
+        <h4>₹{{ product.price }} / Box</h4>
+
+        <div class="qty-box">
+
+          <button
+            (click)="decreaseQty(product)">
+            -
+          </button>
+
+          <span>
+            {{ product.qty }}
           </span>
 
-          <div class="image-placeholder">
-            Mango Image
-          </div>
-
-          <h3>Sindhura</h3>
-
-          <p>Sweet, Juicy & Fibreless</p>
-
-          <h4>₹1,200 / Box</h4>
-
-          <div class="qty-box">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-          </div>
-
-          <button class="cart-btn">
-            Add To Cart
+          <button
+            (click)="increaseQty(product)">
+            +
           </button>
 
         </div>
 
-        <!-- CARD 2 -->
+        <button
+          class="cart-btn"
+          (click)="addToCart(product)">
 
-        <div class="card">
-
-          <div class="image-placeholder">
-            Mango Image
-          </div>
-
-          <h3>Alphonso</h3>
-
-          <p>Rich Aroma & Naturally Sweet</p>
-
-          <h4>₹1,400 / Box</h4>
-
-          <div class="qty-box">
-            <button>-</button>
-            <span>0</span>
-            <button>+</button>
-          </div>
-
-          <button class="cart-btn">
-            Add To Cart
-          </button>
-
-        </div>
-
-        <!-- CARD 3 -->
-
-        <div class="card">
-
-          <div class="image-placeholder">
-            Mango Image
-          </div>
-
-          <h3>Banganapalli</h3>
-
-          <p>Traditionally Famous & Delicious</p>
-
-          <h4>₹1,000 / Box</h4>
-
-          <div class="qty-box">
-            <button>-</button>
-            <span>0</span>
-            <button>+</button>
-          </div>
-
-          <button class="cart-btn">
-            Add To Cart
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- CART -->
-
-    <div class="cart-panel">
-
-      <h3>🛒 Your Cart (2)</h3>
-
-      <div class="cart-item">
-
-        <div>
-          <strong>Sindhura</strong>
-          <p>5 KG Box × 2</p>
-        </div>
-
-        <span>₹2400</span>
-
-      </div>
-
-      <div class="cart-item">
-
-        <div>
-          <strong>Alphonso</strong>
-          <p>5 KG Box × 1</p>
-        </div>
-
-        <span>₹1400</span>
-
-      </div>
-
-      <hr>
-
-      <div class="summary-row">
-        <span>Subtotal</span>
-        <span>₹3800</span>
-      </div>
-
-      <div class="summary-row">
-        <span>Delivery Charges</span>
-        <span>₹100</span>
-      </div>
-
-      <div class="summary-row total">
-        <strong>Total</strong>
-        <strong>₹3900</strong>
-      </div>
-
-      <button class="checkout-btn">
-        Proceed To Checkout →
-      </button>
-
-      <div class="secure-box">
-        🔒 Secure Checkout
-      </div>
-
-    </div>
-
-    <!-- MOBILE PREVIEW -->
-
-    <div class="mobile-preview">
-
-      <div class="mobile-header">
-        ☰
-        <strong>SURESH</strong>
-        🛒
-      </div>
-
-      <div class="mobile-banner">
-
-        <h3>Farm Fresh Mangoes</h3>
-
-        <p>From Our Farm To Your Home</p>
-
-        <button>Shop Now</button>
-
-      </div>
-
-      <div class="mobile-features">
-
-        <span>🌱 Farm Fresh</span>
-
-        <span>⭐ Premium</span>
-
-        <span>🚚 Delivery</span>
-
-      </div>
-
-      <h4>Our Premium Mangoes</h4>
-
-      <div class="mobile-product">
-
-        <div class="mobile-image">
-          Mango
-        </div>
-
-        <h4>Sindhura</h4>
-
-        <p>₹1,200 / Box</p>
-
-        <div class="mobile-qty">
-          <button>-</button>
-          <span>1</span>
-          <button>+</button>
-        </div>
-
-        <button class="mobile-cart-btn">
           Add To Cart
-        </button>
 
-      </div>
-
-      <div class="mobile-footer">
-
-        <div>
-          <strong>2 Items</strong>
-          <br>
-          ₹3,900
-        </div>
-
-        <button>
-          Checkout →
         </button>
 
       </div>
@@ -337,32 +190,299 @@
     </div>
 
   </div>
+
+  <!-- CART PANEL -->
+
+  <div class="cart-panel">
+
+    <h3>
+      🛒 Your Cart ({{ cart.length }})
+    </h3>
+
+    <div
+      class="cart-item"
+      *ngFor="let item of cart">
+
+      <div>
+
+        <strong>
+          {{ item.name }}
+        </strong>
+
+        <p>
+          Qty : {{ item.qty }}
+        </p>
+
+      </div>
+
+      <div>
+
+        ₹{{ item.price * item.qty }}
+
+        <button
+          (click)="removeItem(item)">
+          ❌
+        </button>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="summary-row">
+
+      <span>Subtotal</span>
+
+      <span>₹{{ total }}</span>
+
+    </div>
+
+    <div class="summary-row">
+
+      <span>Delivery Charges</span>
+
+      <span>
+        ₹{{ cart.length > 0 ? 100 : 0 }}
+      </span>
+
+    </div>
+
+    <div class="summary-row total">
+
+      <strong>Total</strong>
+
+      <strong>
+        ₹{{ total + (cart.length > 0 ? 100 : 0) }}
+      </strong>
+
+    </div>
+
+    <button
+      class="checkout-btn"
+      [disabled]="cart.length === 0"
+      (click)="checkout()">
+
+      Proceed To Checkout →
+
+    </button>
+
+    <div class="secure-box">
+      🔒 Secure Checkout
+    </div>
+
+  </div>
+
+  <!-- MOBILE PREVIEW -->
+
+  <div class="mobile-preview">
+
+    <div class="mobile-header">
+
+      ☰
+
+      <strong>SURESH</strong>
+
+      🛒 {{ cart.length }}
+
+    </div>
+
+    <div class="mobile-banner">
+
+      <h3>Farm Fresh Mangoes</h3>
+
+      <p>From Our Farm To Your Home</p>
+
+      <button>
+        Shop Now
+      </button>
+
+    </div>
+
+    <div class="mobile-features">
+
+      <span>🌱 Farm Fresh</span>
+
+      <span>⭐ Premium</span>
+
+      <span>🚚 Delivery</span>
+
+    </div>
+
+    <h4>
+      Our Premium Mangoes
+    </h4>
+
+    <div class="mobile-product">
+
+      <div class="mobile-image">
+        Mango
+      </div>
+
+      <h4>
+        {{ products[0].name }}
+      </h4>
+
+      <p>
+        ₹{{ products[0].price }} / Box
+      </p>
+
+      <div class="mobile-qty">
+
+        <button
+          (click)="decreaseQty(products[0])">
+          -
+        </button>
+
+        <span>
+          {{ products[0].qty }}
+        </span>
+
+        <button
+          (click)="increaseQty(products[0])">
+          +
+        </button>
+
+      </div>
+
+      <button
+        class="mobile-cart-btn"
+        (click)="addToCart(products[0])">
+
+        Add To Cart
+
+      </button>
+
+    </div>
+
+    <div class="mobile-footer">
+
+      <div>
+
+        <strong>
+          {{ cart.length }} Items
+        </strong>
+
+        <br>
+
+        ₹{{ total }}
+
+      </div>
+
+      <button
+        (click)="checkout()"
+        [disabled]="cart.length === 0">
+
+        Checkout →
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 
   <!-- FOOTER FEATURES -->
 
-  <div class="bottom-features">
+  <div id="howItWorksSection" class="bottom-features">
 
-    <div class="feature-card">
-      🚚 Free Delivery
-      <small>Orders Above ₹1500</small>
-    </div>
+  <div class="feature-card">
+    🚚 Free Delivery
+    <small>Orders Above ₹1500</small>
+  </div>
 
-    <div class="feature-card">
-      📦 Secure Packaging
-      <small>Safe & Hygienic</small>
-    </div>
+  <div class="feature-card">
+    📦 Secure Packaging
+    <small>Safe & Hygienic</small>
+  </div>
 
-    <div class="feature-card">
-      ⏰ Timely Delivery
-      <small>On Time Every Time</small>
-    </div>
+  <div class="feature-card">
+    ⏰ Timely Delivery
+    <small>On Time Every Time</small>
+  </div>
 
-    <div class="feature-card">
-      ⭐ 100% Quality
-      <small>Premium Quality Guaranteed</small>
-    </div>
+  <div class="feature-card">
+    ⭐ 100% Quality
+    <small>Premium Quality Guaranteed</small>
+  </div>
+<!-- MY ORDERS -->
+
+<div id="myOrdersSection" class="info-section">
+
+  <h2>📦 My Orders</h2>
+
+  <div class="order-card">
+
+    <h4>Order #1001</h4>
+
+    <p>Sindhura Mango Box × 2</p>
+
+    <p>Total Amount: ₹2400</p>
+
+    <p class="delivered">
+      ✅ Delivered
+    </p>
 
   </div>
+
+  <div class="order-card">
+
+    <h4>Order #1002</h4>
+
+    <p>Alphonso Mango Box × 1</p>
+
+    <p>Total Amount: ₹1400</p>
+
+    <p class="pending">
+      ⏳ Processing
+    </p>
+
+  </div>
+
+</div>
+<!-- ABOUT US -->
+
+<div id="aboutUsSection" class="info-section">
+
+  <h2>About Us</h2>
+
+  <p>
+    Suresh Mango Farms delivers premium farm fresh mangoes
+    directly from Chittoor to customers across India.
+  </p>
+
+  <p>
+    We specialize in premium Sindhura, Alphonso and
+    Banganapalli mangoes grown using natural farming
+    methods and delivered fresh to your doorstep.
+  </p>
+
+</div>
+<!-- CONTACT -->
+
+<div id="contactSection" class="info-section">
+
+  <h2>📞 Contact Us</h2>
+
+  <p>
+    📱 Mobile: +91 8985321181
+  </p>
+
+  <p>
+    📧 Email: sureshmangofarms@gmail.com
+  </p>
+
+  <p>
+    📍 Address: Chittoor, Andhra Pradesh
+  </p>
+
+  <p>
+    🕒 Business Hours: 9:00 AM - 6:00 PM
+  </p>
+
+</div>
+
 
 </div>
             
