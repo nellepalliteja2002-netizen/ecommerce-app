@@ -14,24 +14,25 @@
   color: white;
   border-radius: 20px;
   padding: 30px;
+  position: relative;
+  overflow: hidden;
+  min-height: 380px; /* reduce from current value */
 }
-
 .brand h2 {
-  margin-bottom: 5px;
+  margin-bottom: 40px;
 }
 
 .brand p {
-  font-size: 12px;
-  opacity: 0.9;
+  margin: 0;
 }
-
 .left-panel h3 {
   margin-top: 40px;
   margin-bottom: 15px;
 }
 
 .left-panel p {
-  line-height: 1.6;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .login-card {
@@ -95,6 +96,7 @@
 @media (max-width: 768px) {
   .admin-page {
     flex-direction: column;
+
   }
 
   .left-panel,
@@ -102,4 +104,64 @@
     width: 100%;
     max-width: 420px;
   }
+}
+
+.admin-image {
+  display: block;
+  width: 150px; /* smaller image */
+  height: auto;
+  margin: 25px auto 0;
+  border-radius: 12px;
+}
+.admin-desc {
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-row h2 {
+  margin: 0;
+}
+
+.brand {
+  text-align: left;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-row h2 {
+  margin: 0;
+}
+
+.farm-text {
+display: block;
+margin-left: 0 !important;
+padding-left: 44px !important;
+text-align: left !important;
+}
+
+.mango {
+font-size: 50px; /* increase size */
+line-height: 1;
+}
+
+.brand-text h2 {
+margin: 0;
+color: white;
+font-size: 34px;
+font-weight: bold;
+}
+.brand-text p {
+margin: 4px 0 0 0;
+color: white;
+font-size: 16px;
+font-weight: 600;
 }

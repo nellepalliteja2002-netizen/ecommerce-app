@@ -1,4 +1,6 @@
-<div class="home-page">
+<div
+  class="home-page"
+  *ngIf="currentScreen === 'home'">
 
   <!-- TOP BAR -->
 
@@ -105,7 +107,8 @@
     <div class="hero-right">
 
       <div class="hero-image">
-        Mango Banner Image
+        <!-- Mango Banner Image -->
+         <img src="../../../assets/landingscreen.jpg" height="100px" width="100px" />
       </div>
 
     </div>
@@ -150,7 +153,7 @@
         </span>
 
         <div class="image-placeholder">
-          Mango Image
+          <img [src]="product.image" height="150px" width="150px" />
         </div>
 
         <h3>{{ product.name }}</h3>
@@ -193,15 +196,16 @@
 
   <!-- CART PANEL -->
 
-  <div class="cart-panel">
+<div class="cart-panel">
 
-    <h3>
-      🛒 Your Cart ({{ cart.length }})
-    </h3>
+  <div class="cart-header">
+    <span class="cart-title-icon">🛒</span>
+    <h3>Your Cart ({{ cart.length }})</h3>
+  </div>
 
-    <div
-      class="cart-item"
-      *ngFor="let item of cart">
+  <div
+    class="cart-item"
+    *ngFor="let item of cart">
 
       <div>
 
@@ -277,15 +281,19 @@
 
   <div class="mobile-preview">
 
-    <div class="mobile-header">
+  <div class="mobile-header">
 
-      ☰
+    ☰
 
-      <strong>SURESH</strong>
+    <strong>SURESH</strong>
 
-      🛒 {{ cart.length }}
+    🛒 {{ cart.length }}
 
-    </div>
+  </div>
+
+  <!-- HOME -->
+
+  <div *ngIf="mobileScreen === 'home'">
 
     <div class="mobile-banner">
 
@@ -293,61 +301,35 @@
 
       <p>From Our Farm To Your Home</p>
 
-      <button>
+      <button (click)="showMobileMangoes()">
         Shop Now
       </button>
 
     </div>
 
-    <div class="mobile-features">
+  </div>
 
-      <span>🌱 Farm Fresh</span>
+  <!-- MANGOES -->
 
-      <span>⭐ Premium</span>
+  <div *ngIf="mobileScreen === 'mangoes'">
 
-      <span>🚚 Delivery</span>
+    <h4>Our Premium Mangoes</h4>
 
-    </div>
-
-    <h4>
-      Our Premium Mangoes
-    </h4>
-
-    <div class="mobile-product">
+    <div
+      class="mobile-product"
+      *ngFor="let product of products">
 
       <div class="mobile-image">
         Mango
       </div>
 
-      <h4>
-        {{ products[0].name }}
-      </h4>
+      <h4>{{ product.name }}</h4>
 
-      <p>
-        ₹{{ products[0].price }} / Box
-      </p>
-
-      <div class="mobile-qty">
-
-        <button
-          (click)="decreaseQty(products[0])">
-          -
-        </button>
-
-        <span>
-          {{ products[0].qty }}
-        </span>
-
-        <button
-          (click)="increaseQty(products[0])">
-          +
-        </button>
-
-      </div>
+      <p>₹{{ product.price }} / Box</p>
 
       <button
         class="mobile-cart-btn"
-        (click)="addToCart(products[0])">
+        (click)="addToCart(product)">
 
         Add To Cart
 
@@ -355,37 +337,69 @@
 
     </div>
 
-    <div class="mobile-footer">
+  </div>
 
-      <div>
+  <!-- CART -->
 
-        <strong>
-          {{ cart.length }} Items
-        </strong>
+  <div *ngIf="mobileScreen === 'cart'">
 
-        <br>
+    <h3>🛒 Your Cart</h3>
 
-        ₹{{ total }}
+    <div
+      class="mobile-cart-item"
+      *ngFor="let item of cart">
 
-      </div>
+      <strong>{{ item.name }}</strong>
 
-      <button
-        (click)="checkout()"
-        [disabled]="cart.length === 0">
+      <p>Qty : {{ item.qty }}</p>
 
-        Checkout →
-
-      </button>
+      <p>₹{{ item.price * item.qty }}</p>
 
     </div>
+
+    <div class="summary-row">
+
+      <span>Total</span>
+
+      <strong>
+        ₹{{ total + 100 }}
+      </strong>
+
+    </div>
+
+    <button
+      class="checkout-btn"
+      (click)="checkout()">
+
+      Proceed To Checkout
+
+    </button>
+
+  </div>
+
+  <div class="mobile-footer-nav">
+
+    <button (click)="showMobileHome()">
+      Home
+    </button>
+
+    <button (click)="showMobileMangoes()">
+      Mangoes
+    </button>
+
+    <button (click)="showMobileCart()">
+      Cart
+    </button>
 
   </div>
 
 </div>
 
+</div>
+
   <!-- FOOTER FEATURES -->
 
-  <div id="howItWorksSection" class="bottom-features">
+<div id="howItWorksSection" class="bottom-features">
 
   <div class="feature-card">
     🚚 Free Delivery
@@ -406,6 +420,9 @@
     ⭐ 100% Quality
     <small>Premium Quality Guaranteed</small>
   </div>
+
+</div>
+
 <!-- MY ORDERS -->
 
 <div id="myOrdersSection" class="info-section">
@@ -441,6 +458,7 @@
   </div>
 
 </div>
+
 <!-- ABOUT US -->
 
 <div id="aboutUsSection" class="info-section">
@@ -448,8 +466,8 @@
   <h2>About Us</h2>
 
   <p>
-    Suresh Mango Farms delivers premium farm fresh mangoes
-    directly from Chittoor to customers across India.
+    Suresh Mango Farms delivers premium farm fresh mangoes directly
+    from Chittoor to customers across India.
   </p>
 
   <p>
@@ -459,30 +477,235 @@
   </p>
 
 </div>
+
 <!-- CONTACT -->
 
 <div id="contactSection" class="info-section">
 
   <h2>📞 Contact Us</h2>
 
-  <p>
-    📱 Mobile: +91 8985321181
-  </p>
+  <p>📱 Mobile: +91 8985321181</p>
 
-  <p>
-    📧 Email: sureshmangofarms@gmail.com
-  </p>
+  <p>📧 Email: sureshmangofarms@gmail.com</p>
 
-  <p>
-    📍 Address: Chittoor, Andhra Pradesh
-  </p>
+  <p>📍 Address: Chittoor, Andhra Pradesh</p>
 
-  <p>
-    🕒 Business Hours: 9:00 AM - 6:00 PM
-  </p>
+  <p>🕒 Business Hours: 9:00 AM - 6:00 PM</p>
 
 </div>
 
 
+
 </div>
-            
+
+<!-- DELIVERY DETAILS -->
+
+<div
+  class="checkout-screen"
+  *ngIf="currentScreen === 'delivery'">
+
+  <div class="checkout-steps">
+
+  <div class="step completed">
+    <div class="step-circle">✓</div>
+    <span>Details</span>
+  </div>
+
+  <div class="step-line active-line"></div>
+
+  <div class="step completed">
+    <div class="step-circle">✓</div>
+    <span>Review</span>
+  </div>
+
+  <div class="step-line active-line"></div>
+
+  <div class="step active">
+    <div class="step-circle">3</div>
+    <span>Payment</span>
+  </div>
+
+</div>
+
+
+<h2>Delivery Details</h2>
+
+  <input
+    [(ngModel)]="deliveryForm.fullName"
+    placeholder="Full Name">
+
+  <input
+    [(ngModel)]="deliveryForm.phone"
+    placeholder="Phone Number">
+
+  <textarea
+    [(ngModel)]="deliveryForm.address"
+    placeholder="Address">
+  </textarea>
+
+  <input
+    [(ngModel)]="deliveryForm.city"
+    placeholder="City">
+
+  <input
+    [(ngModel)]="deliveryForm.pincode"
+    placeholder="Pincode">
+
+  <input
+    [(ngModel)]="deliveryForm.state"
+    placeholder="State">
+
+  <input
+    type="date"
+    [(ngModel)]="deliveryForm.deliveryDate">
+
+  <button
+    class="checkout-btn"
+    (click)="goToReview()">
+
+    Save & Continue
+
+  </button>
+
+</div>
+
+<!-- REVIEW ORDER -->
+
+<div
+  class="checkout-screen"
+  *ngIf="currentScreen === 'review'">
+
+  <div class="checkout-steps">
+
+  <div class="step completed">
+    <div class="step-circle">✓</div>
+    <span>Details</span>
+  </div>
+
+  <div class="step-line active-line"></div>
+
+  <div class="step active">
+    <div class="step-circle">2</div>
+    <span>Review</span>
+  </div>
+
+  <div class="step-line"></div>
+
+  <div class="step">
+    <div class="step-circle">3</div>
+    <span>Payment</span>
+  </div>
+
+</div>
+
+<h2>Review Order</h2>
+
+  <h3>Delivery To</h3>
+
+  <p>{{ deliveryForm.fullName }}</p>
+
+  <p>{{ deliveryForm.phone }}</p>
+
+  <p>{{ deliveryForm.address }}</p>
+
+  <hr>
+
+  <h3>🛒 Order Items</h3>
+
+<div
+  class="review-item"
+  *ngFor="let item of cart">
+
+  <span>
+    {{ item.name }}
+    (Qty {{ item.qty }})
+  </span>
+
+  <strong>
+    ₹{{ item.price * item.qty }}
+  </strong>
+
+</div>
+
+  <hr>
+
+  <h3>
+
+    Total :
+    ₹{{ total + 100 }}
+
+  </h3>
+
+  <button
+    class="checkout-btn"
+    (click)="placeOrder()">
+
+    Continue To Payment
+
+  </button>
+
+</div>
+
+<!-- ORDER SUCCESS -->
+
+<div
+  class="checkout-screen success-screen"
+  *ngIf="currentScreen === 'success'">
+
+  
+
+  <div class="checkout-steps">
+
+  <div class="step completed">
+    <div class="step-circle">1</div>
+    <span>Details</span>
+  </div>
+
+  <div class="step-line active-line"></div>
+
+  <div class="step completed">
+    <div class="step-circle">2</div>
+    <span>Review</span>
+  </div>
+
+  <div class="step-line active-line"></div>
+
+  <div class="step active">
+    <div class="step-circle">3</div>
+    <span>Payment</span>
+  </div>
+
+</div>
+
+<h2>Order Placed Successfully!</h2>
+
+  <p>
+    Thank you for ordering from
+    Suresh Mango Farms.
+  </p>
+
+  <div class="order-id">
+
+    <strong>
+      #{{ orderId }}
+    </strong>
+
+  </div>
+
+  <button
+    class="checkout-btn"
+    (click)="myOrders()">
+
+    View My Orders
+
+  </button>
+
+  <button
+    class="cart-btn"
+    (click)="continueShopping()">
+
+    Continue Shopping
+
+  </button>
+
+</div>

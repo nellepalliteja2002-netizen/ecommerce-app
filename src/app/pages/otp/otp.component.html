@@ -3,10 +3,15 @@
   <div class="otp-card">
 
     <div class="logo-section">
-      <div class="logo-icon">🥭</div>
+  <div class="logo-row">
+    <div class="logo-icon">🥭</div>
+
+    <div class="brand-text">
       <h2>SURESH</h2>
       <p>MANGO FARMS</p>
     </div>
+  </div>
+</div>
 
     <h1>Enter OTP</h1>
 
@@ -16,7 +21,9 @@
 
     <h4 class="phone">
       +91 8985321181
-      <span class="edit">Edit</span>
+      <span class="edit" routerLink="/forgot-password">
+  Edit
+</span>
     </h4>
 
     <div class="otp-boxes">
@@ -29,8 +36,12 @@
     </div>
 
     <p class="timer">
-      Resend OTP in <span>00:28</span>
-    </p>
+  Resend OTP in
+  <span>
+    00:{{ countdown < 10 ? '0' + countdown : countdown }}
+  </span>
+</p>
+
 
     <button
   class="verify-btn"

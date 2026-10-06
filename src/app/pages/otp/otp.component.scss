@@ -16,9 +16,14 @@
 }
 
 .logo-icon {
-  font-size: 50px;
+font-size: 24px;
+margin-top: -8px;
 }
-
+.logo-row {
+display: flex;
+align-items: center;
+gap: 8px;
+}
 .logo-section h2 {
   color: #2e7d32;
 }
@@ -103,4 +108,27 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 20px;
+}
+
+.logo-section {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+.brand-text h2 {
+margin: 0;
+font-size: 22px;
+color: #2e7d32;
+font-weight: 700;
+line-height: 1;
+}
+.brand-text p {
+margin: 0;
+font-size: 9px;
+color: #666;
+font-weight: 600;
+letter-spacing: 1px;
+}
+.brand-text {
+text-align: left;
 }

@@ -10,6 +10,23 @@ export class CustomerHomeComponent implements OnInit {
   searchText = '';
 
   selectedSection = '';
+  mobileScreen = 'home';
+
+  currentScreen = 'home';
+
+  orderId =
+    'SMF' +
+     Date.now().toString().slice(-8);
+
+  deliveryForm = {
+fullName: '',
+phone: '',
+address: '',
+city: '',
+pincode: '',
+state: '',
+deliveryDate: ''
+};
 
   products = [
     {
@@ -17,21 +34,24 @@ export class CustomerHomeComponent implements OnInit {
       name: 'Sindhura',
       price: 1200,
       qty: 0,
-      description: 'Sweet, Juicy & Fibreless'
+      description: 'Sweet, Juicy & Fibreless',
+      image: '../../../assets/sindhura.jpg'
     },
     {
       id: 2,
       name: 'Alphonso',
       price: 1400,
       qty: 0,
-      description: 'Rich Aroma & Naturally Sweet'
+      description: 'Rich Aroma & Naturally Sweet',
+      image: '../../../assets/alphonso-mango.jpg'
     },
     {
       id: 3,
       name: 'Banganapalli',
       price: 1000,
       qty: 0,
-      description: 'Traditionally Famous & Delicious'
+      description: 'Traditionally Famous & Delicious',
+      image: '../../../assets/banganapalli-mango.jpg'
     }
   ];
 
@@ -82,6 +102,8 @@ addToCart(product: any) {
   }
 
   this.calculateTotal();
+
+  this.mobileScreen = 'cart';
 
 }
 
@@ -158,16 +180,20 @@ addToCart(product: any) {
 
 myOrders() {
 
-  const section =
-    document.getElementById('myOrdersSection');
+  this.currentScreen = 'home';
 
-  if (section) {
+  setTimeout(() => {
 
-    section.scrollIntoView({
-      behavior: 'smooth'
-    });
+    const section =
+      document.getElementById('myOrdersSection');
 
-  }
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+  }, 100);
 
 }
 aboutUs() {
@@ -225,6 +251,19 @@ contactUs() {
     }
 
   }
+  showMobileHome() {
+
+  this.mobileScreen = 'home';
+
+}
+
+showMobileMangoes() {
+
+  this.mobileScreen = 'mangoes';
+
+}
+
+
 
   // ======================
   // CHECKOUT
@@ -232,18 +271,53 @@ contactUs() {
 
   checkout() {
 
-    if (this.cart.length === 0) {
+  if (this.cart.length === 0) {
 
-      alert('Cart is empty');
-      return;
-
-    }
-
-    alert(
-      'Proceeding to checkout. Total Amount: ₹' +
-      (this.total + 100)
-    );
+    alert('Cart is empty');
+    return;
 
   }
+
+  this.currentScreen = 'delivery';
+
+  window.scrollTo({
+     top: document.body.scrollHeight,
+     behavior: 'smooth'
+});
+
+}
+
+showMobileCart() {
+
+  this.mobileScreen = 'cart';
+
+}
+
+goToReview() {
+
+  this.currentScreen = 'review';
+
+}
+
+placeOrder() {
+
+  this.orderId =
+    'SMF' +
+    Date.now().toString().slice(-8);
+
+  this.currentScreen = 'success';
+
+}
+
+continueShopping() {
+
+  this.currentScreen = 'home';
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+}
 
 }
